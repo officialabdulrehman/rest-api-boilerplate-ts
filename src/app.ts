@@ -1,8 +1,8 @@
-import { apiError, errorHandler404, errorUnhandledRejection, errorUncughtException, errorHandlerAll } from "./util/apiHelpers";
+import { apiError, errorHandler404, errorUnhandledRejection, errorUncughtException, errorHandlerAll, homePageHandler } from "./util/apiHelpers";
 
 process.on("uncaughtException", errorUncughtException);
 
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
 import compression from "compression";  // compresses requests
 import lusca from "lusca";
 import cors from "cors";
@@ -29,13 +29,7 @@ app.use(lusca.xssProtection(true));
 app.use("/api/v1/test", testRouter.Router());
 app.use("/api/v1/user", userRouter.Router());
 
-app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.status(200).send(`
-    <body style="color:#03a9f4;background-color:#222;display:flex;align-items:center;justify-content:center" >
-      <h1>Welcome to the dark side</h1>
-    </body>
-  `);
-});
+app.get("/", homePageHandler);
 app.all("*", errorHandler404);
 
 app.use(errorHandlerAll);

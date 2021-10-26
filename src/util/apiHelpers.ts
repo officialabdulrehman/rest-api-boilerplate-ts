@@ -1,4 +1,4 @@
-import { NextFunction, Response, Request, response } from "express";
+import { NextFunction, Response, Request } from "express";
 import { ENVIRONMENT } from "./secrets";
 import _ from "lodash";
 import { check, validationResult } from "express-validator";
@@ -145,3 +145,11 @@ export const validateAPI = async (req: Request, res: Response, m: any) => {
 
   apiValidation(req, res);
 };
+
+export const homePageHandler = (req: Request, res: Response, next: NextFunction) => {
+  res.status(200).send(`
+    <body style="color:#03a9f4;background-color:#222;display:flex;align-items:center;justify-content:center" >
+      <h1>Welcome to the dark side</h1>
+    </body>
+  `);
+}
