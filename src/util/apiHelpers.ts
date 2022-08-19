@@ -152,4 +152,4 @@ export const homePageHandler = (req: Request, res: Response, next: NextFunction)
       <h1>Welcome to the dark side</h1>
     </body>
   `);
-}
+};

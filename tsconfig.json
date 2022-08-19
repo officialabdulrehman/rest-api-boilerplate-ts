@@ -9,6 +9,8 @@
         "sourceMap": true,
         "outDir": "dist",
         "baseUrl": ".",
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
         "paths": {
             "*": [
                 "node_modules/*",

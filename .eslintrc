@@ -9,11 +9,11 @@
   },
   "rules": {
     "semi": [
-      "error",
+      "warning",
       "always"
     ],
     "quotes": [
-      "error",
+      "warning",
       "double"
     ],
     "@typescript-eslint/explicit-function-return-type": "off",
